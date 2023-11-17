@@ -1,0 +1,56 @@
+
+
+
+
+#include <iostream>
+
+using namespace std;
+
+long long x[1001];
+
+int main()
+{
+    int a,p=1,b,r,d,c1,c2,m,i,maxi=-1,n,ok=1,cmmdc,numar1=0,nr=0,numar2=0;
+    cin>>n;
+    c1=n;
+    while(c1>0)
+    {
+        nr++;
+        c1/=10;
+    }
+    c1=nr;
+    if(c1%2==1)
+    {
+        nr--;
+    }
+    while(nr>c1/2)
+    {
+        numar1=numar1+(n%10)*p;
+        p=p*10;
+        nr--;
+        n=n/10;
+    }
+
+    if(c1%2==1)
+    {
+      n=n/10;
+    }
+    p=1;
+    while(nr>0)
+    {
+        numar2=numar2+(n%10)*p;
+        p=p*10;
+        nr--;
+        n=n/10;
+    }
+    while(numar2!=0)
+    {
+        r=numar1%numar2;
+        numar1=numar2;
+        numar2=r;
+    }
+    cout<<numar1;
+
+
+    return 0;
+}
